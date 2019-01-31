@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+@section scripts{
+    <script src="~/Scripts/funcionario/Cadastro.js"></script>
+}
+
+<h4>Cadastro de Funcionario</h4>
+
+<form method="post" action="@Url.Action("Cadastro")" id="cadastro-funcionario">
+
+    <div class="form-group">
+        <label for="cadastro-funcionario-privilegio">Privilegio</label>
+        <select id="cadastro-funcionario-privilegio" name="funcionario.PrivilegioId" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="cadastro-funcionario-nome">Nome</label>
+        <input type="text" id="cadastro-funcionario-nome" name="funcionario.Nome" class="form-control" value="@ViewBag.funcionario.Nome" />
+        @Html.ValidationMessage("funcionario.Nome", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="cadastro-funcionario-salario">Salario</label>
+        <input type="text" id="cadastro-funcionario-salario" name="funcionario.Salario" class="form-control" value="@ViewBag.funcionario.Salario" />
+        @Html.ValidationMessage("funcionario.Salario", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+
+</form>
